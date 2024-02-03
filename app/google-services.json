@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "370295969320",
+    "project_id": "olaf-android",
+    "storage_bucket": "olaf-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370295969320:android:43ae701cfb3229ab2dc71d",
+        "android_client_info": {
+          "package_name": "com.example.finalproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370295969320-mkerq38d8gh5lgr4s23vugmgocd00n8o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAGPG0FozLzCDO0Xgxl8iFY86g3P9Wn7A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "370295969320-mkerq38d8gh5lgr4s23vugmgocd00n8o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

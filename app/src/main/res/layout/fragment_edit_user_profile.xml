@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditUserProfileFragment">
+
+
+    <ImageView
+        android:id="@+id/user_img"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/bear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/mail_tp"
+        android:layout_width="218dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:editable="false"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="dani@gmail.com"
+        android:textColor="#A79C9C"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_img"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/first_name_tp"
+        android:layout_width="228dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edit_text_rect"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toEndOf="@+id/first_name_tv"
+        app:layout_constraintTop_toBottomOf="@+id/mail_tp"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/last_name_tp"
+        android:layout_width="228dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/edit_text_rect"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.764"
+        app:layout_constraintStart_toEndOf="@+id/last_name_tv"
+        app:layout_constraintTop_toBottomOf="@+id/first_name_tp"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/bio_tp"
+        android:layout_width="224dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/edit_text_rect"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.929"
+        app:layout_constraintStart_toEndOf="@+id/bio_tv"
+        app:layout_constraintTop_toBottomOf="@+id/last_name_tp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/bio_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="28dp"
+        android:text="Bio:"
+        android:textColor="#000000"
+        android:textSize="27sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/last_name_tv"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/mail_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="40dp"
+        android:text="Mail:"
+        android:textColor="#000000"
+        android:textSize="27sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_img"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/last_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="28dp"
+        android:text="Last Name:"
+        android:textColor="#000000"
+        android:textSize="27sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_name_tv"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/first_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="28dp"
+        android:text="First Name:"
+        android:textColor="#000000"
+        android:textSize="27sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mail_tv"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/save_edit_btn"
+        android:layout_width="112dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="44dp"
+        android:backgroundTint="#F11551"
+        android:text="Save"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.945"
+        app:layout_constraintStart_toEndOf="@+id/cancel_edit_btn"
+        app:layout_constraintTop_toBottomOf="@+id/bio_tp" />
+
+    <Button
+        android:id="@+id/cancel_edit_btn"
+        android:layout_width="112dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="#F11551"
+        android:text="CANCEL"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bio_tp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

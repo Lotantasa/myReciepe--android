@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/MusicalsListFragment">
+
+    <fragment
+        android:id="@+id/musicalFragment"
+        android:name="com.example.finalproject.MusicalFragment"
+        android:label="fragment_musical"
+        tools:layout="@layout/fragment_musical" >
+        <argument
+            android:name="Musical"
+            app:argType="com.example.finalproject.model.Musical"
+            app:nullable="true"/>
+        <action
+            android:id="@+id/action_musicalFragment_to_userProfileFragment"
+            app:destination="@id/userProfileFragment" />
+        <action
+            android:id="@+id/action_musicalFragment_to_newReviewFragment"
+            app:destination="@id/newReviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="com.example.finalproject.UserProfileFragment"
+        android:label="fragment_user_profile"
+        tools:layout="@layout/fragment_user_profile" >
+        <action
+            android:id="@+id/action_userProfileFragment_to_newReviewFragment"
+            app:destination="@id/newReviewFragment" />
+        <action
+            android:id="@+id/action_userProfileFragment_to_editUserProfileFragment"
+            app:destination="@id/editUserProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editUserProfileFragment"
+        android:name="com.example.finalproject.EditUserProfileFragment"
+        android:label="fragment_edit_user_profile"
+        tools:layout="@layout/fragment_edit_user_profile" >
+        <argument
+            android:name="User"
+            app:argType="com.example.finalproject.model.User"
+            app:nullable="true"/>
+        <action
+            android:id="@+id/action_editUserProfileFragment_to_userProfileFragment"
+            app:destination="@id/userProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newReviewFragment"
+        android:name="com.example.finalproject.NewReviewFragment"
+        android:label="fragment_new_review"
+        tools:layout="@layout/fragment_new_review" >
+        <argument
+            android:name="Review"
+            app:argType="com.example.finalproject.model.Review"
+            app:nullable="true"/>
+        <argument
+            android:name="eventId"
+            app:argType="java.lang.Integer"
+            app:nullable="true"/>
+        <action
+            android:id="@+id/action_newReviewFragment_to_musicalFragment"
+            app:destination="@id/musicalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/MusicalsListFragment"
+        android:name="com.example.finalproject.MusicalsListFragment"
+        android:label="fragment_musicals_list"
+        tools:layout="@layout/fragment_musicals_list" >
+        <action
+            android:id="@+id/action_musicalsListFragment_to_musicalFragment"
+            app:destination="@id/musicalFragment" />
+    </fragment>
+</navigation>
