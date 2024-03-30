@@ -1,4 +1,4 @@
-package com.example.finalproject;
+package com.example.finalproject.views;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Toast;
 import com.example.finalproject.databinding.ActivitySigninBinding;
 import com.example.finalproject.model.User;
-import com.example.finalproject.model.UserModel;
+import com.example.finalproject.repositories.UserRepository;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -43,7 +43,7 @@ public class SigninActivity extends AppCompatActivity {
             avatar = "";
             if(!isFieldsEmpty(password, mail, firstName, lastName, bio)){
                 User userToAdd = new User(password, mail, firstName,
-                        lastName, bio, UserModel.instance.userId, avatar);
+                        lastName, bio, UserRepository.instance.userId, avatar);
 
                saveUser(userToAdd);
             }
@@ -92,8 +92,8 @@ public class SigninActivity extends AppCompatActivity {
                         if (task.isSuccessful()){
                             String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
                             userToAdd.setUid(uid);
-                            UserModel.instance.setUserId(uid);
-                            UserModel.instance.createUser(userToAdd, (unused) -> changeActivity(MainActivity.class));
+                            UserRepository.instance.setUserId(uid);
+                            UserRepository.instance.createUser(userToAdd, (unused) -> changeActivity(MainActivity.class));
                         } else {
                             Toast.makeText(SigninActivity.this, "can not sign you",
                                     Toast.LENGTH_SHORT).show();

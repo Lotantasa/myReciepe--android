@@ -8,8 +8,4 @@ public class MusicalsResult {
     public List<Musical> getEvents() {
         return Events;
     }
-
-    public void setEvents(List<Musical> events) {
-        Events = events;
-    }
 }

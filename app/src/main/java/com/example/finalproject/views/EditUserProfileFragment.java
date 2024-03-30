@@ -1,4 +1,4 @@
-package com.example.finalproject;
+package com.example.finalproject.views;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -12,10 +12,12 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.finalproject.model.ImageModel;
+
+import com.example.finalproject.R;
 import com.example.finalproject.model.User;
 import com.example.finalproject.databinding.FragmentEditUserProfileBinding;
-import com.example.finalproject.model.UserModel;
+import com.example.finalproject.repositories.AppLocalDbRepository;
+import com.example.finalproject.repositories.UserRepository;
 import com.squareup.picasso.Picasso;
 
 public class EditUserProfileFragment extends Fragment {
@@ -77,11 +79,11 @@ public class EditUserProfileFragment extends Fragment {
         });
     }
 
-    private void uploadImg(User user, ImageModel.UploadImageListener callback) {
+    private void uploadImg(User user, AppLocalDbRepository.ImageRepository.UploadImageListener callback) {
             binding.userImg.setDrawingCacheEnabled(true);
             binding.userImg.buildDrawingCache();
             Bitmap bitmap = ((BitmapDrawable) binding.userImg.getDrawable()).getBitmap();
-            ImageModel.instance.uploadImage(user.getUid(), bitmap, callback);
+            AppLocalDbRepository.ImageRepository.instance.uploadImage(user.getUid(), bitmap, callback);
     }
 
     private void onCancel() {
@@ -112,7 +114,7 @@ public class EditUserProfileFragment extends Fragment {
     }
 
     private void saveUserNewData(User editedUser, View view) {
-        UserModel.instance.updateUser(editedUser, (unused) -> Navigation.findNavController(view)
+        UserRepository.instance.updateUser(editedUser, (unused) -> Navigation.findNavController(view)
                 .navigate(R.id.action_editUserProfileFragment_to_userProfileFragment));
     }
 }

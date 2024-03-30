@@ -1,14 +1,18 @@
-package com.example.finalproject;
+package com.example.finalproject.views;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
+
+import com.example.finalproject.R;
+import com.example.finalproject.ReviewRecyclerAdapter;
+import com.example.finalproject.ReviewsListFragment;
 import com.example.finalproject.databinding.FragmentMusicalBinding;
 import com.example.finalproject.model.LiveDataEvents;
 import com.example.finalproject.model.Musical;
 import com.example.finalproject.model.Review;
-import com.example.finalproject.model.ReviewModel;
+import com.example.finalproject.repositories.ReviewRepository;
 import com.squareup.picasso.Picasso;
 import android.os.Bundle;
 import android.os.Parcel;
@@ -74,7 +78,7 @@ public class MusicalFragment extends Fragment {
             reloadData();
         });
 
-        ReviewModel.instance.getAllMusicalReviews(currMusical.getId(),(reviewsData) -> {
+        ReviewRepository.instance.getAllMusicalReviews(currMusical.getId(),(reviewsData) -> {
             reviewsList = reviewsData;
             if (reviewListFragment != null) {
                 reviewListFragment.setParameters(reviewsList, reviewRowOnClickListener);
@@ -88,7 +92,7 @@ public class MusicalFragment extends Fragment {
     }
 
     void reloadData() {
-        ReviewModel.instance.getAllMusicalReviews(currMusical.getId(),(reviewsData) -> {
+        ReviewRepository.instance.getAllMusicalReviews(currMusical.getId(),(reviewsData) -> {
             reviewsList = reviewsData;
             if (reviewListFragment != null) {
                 reviewListFragment.setParameters(reviewsList, reviewRowOnClickListener);

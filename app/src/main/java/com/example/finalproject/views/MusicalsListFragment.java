@@ -1,4 +1,4 @@
-package com.example.finalproject;
+package com.example.finalproject.views;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -8,8 +8,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.finalproject.MusicalRecyclerAdapter;
+import com.example.finalproject.R;
 import com.example.finalproject.databinding.FragmentMusicalsListBinding;
-import com.example.finalproject.model.MusicalModel;
+import com.example.finalproject.repositories.MusicalRepository;
 import com.example.finalproject.model.Musical;
 import java.util.LinkedList;
 import java.util.List;
@@ -33,7 +36,7 @@ public class MusicalsListFragment extends Fragment {
         adapter = new MusicalRecyclerAdapter(getLayoutInflater(),data);
         binding.musicalFragList.setAdapter(adapter);
 
-        LiveData<List<Musical>> data = MusicalModel.instance.getMusicals();
+        LiveData<List<Musical>> data = MusicalRepository.instance.getMusicals();
         data.observe(getViewLifecycleOwner(),list-> {
             adapter.setData(list);
             binding.progressBar.setVisibility(View.GONE);

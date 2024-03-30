@@ -1,4 +1,4 @@
-package com.example.finalproject;
+package com.example.finalproject.views;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,12 +11,17 @@ import android.os.Parcel;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.finalproject.R;
+import com.example.finalproject.ReviewRecyclerAdapter;
+import com.example.finalproject.ReviewsListFragment;
+import com.example.finalproject.viewModels.UserProfileFragmentViewModel;
 import com.example.finalproject.databinding.FragmentUserProfileBinding;
 import com.example.finalproject.model.LiveDataEvents;
 import com.example.finalproject.model.Review;
-import com.example.finalproject.model.ReviewModel;
+import com.example.finalproject.repositories.ReviewRepository;
 import com.example.finalproject.model.User;
-import com.example.finalproject.model.UserModel;
+import com.example.finalproject.repositories.UserRepository;
 import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
@@ -75,7 +80,7 @@ public class UserProfileFragment extends Fragment {
             reviewListFragment.setParameters(list, reviewRowOnClickListener);
         });
 
-        UserModel.instance.getUserData(user -> {
+        UserRepository.instance.getUserData(user -> {
             binding.usernameTv.setText(user.getFirstName() + " " + user.getLastName());
             binding.mailTv.setText(user.getMail());
             binding.bioTv.setText(user.getBio());
@@ -110,7 +115,7 @@ public class UserProfileFragment extends Fragment {
         }
 
         LiveDataEvents.instance().EventReviewListReload.observe(getViewLifecycleOwner(),unused->{
-            ReviewModel.instance.refreshAllUserReviews();
+            ReviewRepository.instance.refreshAllUserReviews();
         });
 
         return view;

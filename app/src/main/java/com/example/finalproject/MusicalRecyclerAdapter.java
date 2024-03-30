@@ -83,7 +83,7 @@ public class MusicalRecyclerAdapter extends RecyclerView.Adapter<MusicalViewHold
         void onItemClick(int pos);
     }
 
-    void setOnItemClickListener(MusicalRecyclerAdapter.OnItemClickListener listener){
+    public void setOnItemClickListener(MusicalRecyclerAdapter.OnItemClickListener listener){
         this.listener = listener;
     }
 }

@@ -124,17 +124,6 @@ public class Review implements Parcelable {
     // Setters
     public String getImgUrl() { return imgUrl; }
 
-    public void setDocId(@Nonnull String docId) {
-        this.docId = docId;
-    }
-
-    public void setSeat(String seat) {
-        this.seat = seat;
-    }
-
-    public void setStars(Float stars) {
-        this.stars = stars;
-    }
 
     public void setContent(String content) {
         this.content = content;
@@ -151,13 +140,6 @@ public class Review implements Parcelable {
         dest.writeInt(eventId);
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public void setEventId(Integer eventId) {
-        this.eventId = eventId;
-    }
 
     public void setLastUpdated(Long time) {
         this.lastUpdated = time;

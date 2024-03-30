@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbarSize="5dp"
-    tools:context=".MusicalsListFragment">
+    tools:context=".views.MusicalsListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/musical_frag_list"

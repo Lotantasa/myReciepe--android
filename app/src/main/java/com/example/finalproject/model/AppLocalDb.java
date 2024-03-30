@@ -1,14 +1,9 @@
 package com.example.finalproject.model;
 
-import androidx.room.Database;
 import androidx.room.Room;
-import androidx.room.RoomDatabase;
-import com.example.finalproject.FinalProjectApplication;
 
-@Database(entities = {Review.class}, version = 2)
-abstract class AppLocalDbRepository extends RoomDatabase {
-    public abstract ReviewDao reviewDao();
-}
+import com.example.finalproject.FinalProjectApplication;
+import com.example.finalproject.repositories.AppLocalDbRepository;
 
 public class AppLocalDb{
     static public AppLocalDbRepository getAppDb() {

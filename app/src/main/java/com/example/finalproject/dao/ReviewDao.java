@@ -1,4 +1,4 @@
-package com.example.finalproject.model;
+package com.example.finalproject.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -6,6 +6,8 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+
+import com.example.finalproject.model.Review;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;

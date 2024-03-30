@@ -1,4 +1,4 @@
-package com.example.finalproject;
+package com.example.finalproject.views;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -12,11 +12,13 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.finalproject.R;
 import com.example.finalproject.databinding.FragmentNewReviewBinding;
-import com.example.finalproject.model.ImageModel;
 import com.example.finalproject.model.Review;
-import com.example.finalproject.model.ReviewModel;
-import com.example.finalproject.model.UserModel;
+import com.example.finalproject.repositories.AppLocalDbRepository;
+import com.example.finalproject.repositories.ReviewRepository;
+import com.example.finalproject.repositories.UserRepository;
 import com.squareup.picasso.Picasso;
 import java.util.UUID;
 
@@ -58,11 +60,11 @@ public class NewReviewFragment extends Fragment {
         }
     }
 
-    private void uploadImg(Review rv, ImageModel.UploadImageListener callback) {
+    private void uploadImg(Review rv, AppLocalDbRepository.ImageRepository.UploadImageListener callback) {
             binding.addImgBtn.setDrawingCacheEnabled(true);
             binding.addImgBtn.buildDrawingCache();
             Bitmap bitmap = ((BitmapDrawable)  binding.addImgBtn.getDrawable()).getBitmap();
-            ImageModel.instance.uploadImage(rv.getDocId(), bitmap, callback);
+            AppLocalDbRepository.ImageRepository.instance.uploadImage(rv.getDocId(), bitmap, callback);
     }
 
     @Override
@@ -96,34 +98,34 @@ public class NewReviewFragment extends Fragment {
             if(currentReview == null) {
                 UUID uuid = UUID.randomUUID();
                 String uniqueID = uuid.toString();
-                Review rv = new Review(seat,rate,content, UserModel.instance.getUserId(), uniqueID, eventId);
+                Review rv = new Review(seat,rate,content, UserRepository.instance.getUserId(), uniqueID, eventId);
                 if (isImgSelected) {
                     uploadImg(rv, (url) -> {
                         if (url != null) {
                             rv.setImgUrl(url);
-                            ReviewModel.instance.addReview(rv, (unused) -> {
+                            ReviewRepository.instance.addReview(rv, (unused) -> {
                                 Navigation.findNavController(view1).popBackStack();
                             });
                         }
                     });
                 } else {
-                    ReviewModel.instance.addReview(rv, (unused) -> {
+                    ReviewRepository.instance.addReview(rv, (unused) -> {
                         Navigation.findNavController(view1).popBackStack();
                     });
                 }
             } else {
-                Review rv = new Review(seat,rate,content, UserModel.instance.getUserId(), currentReview.getDocId(),eventId, currentReview.getImgUrl());
+                Review rv = new Review(seat,rate,content, UserRepository.instance.getUserId(), currentReview.getDocId(),eventId, currentReview.getImgUrl());
                 if (isImgSelected) {
                     uploadImg(rv, (url) -> {
                         if (url != null) {
                             rv.setImgUrl(url);
-                            ReviewModel.instance.updateReview(rv, (unused) -> {
+                            ReviewRepository.instance.updateReview(rv, (unused) -> {
                                 Navigation.findNavController(view1).popBackStack();
                             });
                         }
                     });
                 } else {
-                    ReviewModel.instance.updateReview(rv, (unused) -> {
+                    ReviewRepository.instance.updateReview(rv, (unused) -> {
                         Navigation.findNavController(view1).popBackStack();
                     });
                 }

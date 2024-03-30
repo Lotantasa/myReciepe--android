@@ -1,4 +1,6 @@
-package com.example.finalproject.model;
+package com.example.finalproject.api;
+
+import com.example.finalproject.model.MusicalsResult;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
