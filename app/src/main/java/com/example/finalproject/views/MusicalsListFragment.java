@@ -12,14 +12,14 @@ import android.view.ViewGroup;
 import com.example.finalproject.MusicalRecyclerAdapter;
 import com.example.finalproject.R;
 import com.example.finalproject.databinding.FragmentMusicalsListBinding;
-import com.example.finalproject.repositories.MusicalRepository;
-import com.example.finalproject.model.Musical;
+import com.example.finalproject.repositories.RecipesRepository;
+import com.example.finalproject.model.Recipe;
 import java.util.LinkedList;
 import java.util.List;
 
 public class MusicalsListFragment extends Fragment {
 
-    List<Musical> data = new LinkedList<>();
+    List<Recipe> data = new LinkedList<>();
     MusicalRecyclerAdapter adapter;
     FragmentMusicalsListBinding binding;
 
@@ -36,7 +36,7 @@ public class MusicalsListFragment extends Fragment {
         adapter = new MusicalRecyclerAdapter(getLayoutInflater(),data);
         binding.musicalFragList.setAdapter(adapter);
 
-        LiveData<List<Musical>> data = MusicalRepository.instance.getMusicals();
+        LiveData<List<Recipe>> data = RecipesRepository.instance.getRecipes();
         data.observe(getViewLifecycleOwner(),list-> {
             adapter.setData(list);
             binding.progressBar.setVisibility(View.GONE);
@@ -47,7 +47,7 @@ public class MusicalsListFragment extends Fragment {
             @Override
             public void onItemClick(int pos) {
                 Bundle bundle = new Bundle();
-                Musical mus = data.getValue().get(pos);
+                Recipe mus = data.getValue().get(pos);
                 bundle.putParcelable("Musical", mus);
                 Navigation.findNavController(view)
                         .navigate(R.id.action_musicalsListFragment_to_musicalFragment, bundle);

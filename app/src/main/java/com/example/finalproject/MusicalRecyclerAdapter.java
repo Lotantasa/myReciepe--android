@@ -7,22 +7,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.finalproject.model.Musical;
+import com.example.finalproject.model.Recipe;
 import com.squareup.picasso.Picasso;
 import java.util.List;
 
 class MusicalViewHolder extends RecyclerView.ViewHolder{
     TextView titleTv;
-    TextView descriptionTv;
     ImageView imgIv;
-    List<Musical> data;
+    List<Recipe> data;
 
-    public MusicalViewHolder(@NonNull View itemView, List<Musical> data, MusicalRecyclerAdapter.OnItemClickListener listener) {
+    public MusicalViewHolder(@NonNull View itemView, List<Recipe> data, MusicalRecyclerAdapter.OnItemClickListener listener) {
         super(itemView);
         this.data = data;
 
         titleTv = itemView.findViewById(R.id.musical_title_tv);
-        descriptionTv = itemView.findViewById(R.id.musical_description_tv);
         imgIv = itemView.findViewById(R.id.musical_img_iv);
 
         itemView.setOnClickListener(new View.OnClickListener() {
@@ -34,11 +32,10 @@ class MusicalViewHolder extends RecyclerView.ViewHolder{
         });
     }
 
-    public void bind(Musical musical, int pos) {
-        titleTv.setText(musical.getTitle());
-        descriptionTv.setText(musical.getDescription());
-        if(musical.getImg() != null) {
-            Picasso.get().load(musical.getImg()).placeholder(R.drawable.default_pic).into(imgIv);
+    public void bind(Recipe recipe, int pos) {
+        titleTv.setText(recipe.getTitle());
+        if(recipe.getImg() != null) {
+            Picasso.get().load(recipe.getImg()).placeholder(R.drawable.default_pic).into(imgIv);
         } else {
             imgIv.setImageResource(R.drawable.default_pic);
         }
@@ -49,14 +46,14 @@ public class MusicalRecyclerAdapter extends RecyclerView.Adapter<MusicalViewHold
 
     MusicalRecyclerAdapter.OnItemClickListener listener;
     LayoutInflater inflater;
-    List<Musical> data;
+    List<Recipe> data;
 
-    public void setData(List<Musical> data) {
+    public void setData(List<Recipe> data) {
         this.data = data;
         notifyDataSetChanged();
     }
 
-    public MusicalRecyclerAdapter(LayoutInflater inflater, List<Musical> data){
+    public MusicalRecyclerAdapter(LayoutInflater inflater, List<Recipe> data){
         this.inflater = inflater;
         this.data = data;
     }
@@ -70,8 +67,8 @@ public class MusicalRecyclerAdapter extends RecyclerView.Adapter<MusicalViewHold
 
     @Override
     public void onBindViewHolder(@NonNull MusicalViewHolder holder, int position) {
-        Musical musical = data.get(position);
-        holder.bind(musical, position);
+        Recipe recipe = data.get(position);
+        holder.bind(recipe, position);
     }
 
     @Override

@@ -3,9 +3,9 @@ package com.example.finalproject.model;
 import java.util.List;
 
 public class MusicalsResult {
-    List<Musical> Events;
+    List<Recipe> Events;
 
-    public List<Musical> getEvents() {
+    public List<Recipe> getEvents() {
         return Events;
     }
 }

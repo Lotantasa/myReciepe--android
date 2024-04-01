@@ -3,9 +3,9 @@ package com.example.finalproject.repositories;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.finalproject.api.MusicalApi;
+import com.example.finalproject.api.RecipesApi;
 import com.example.finalproject.model.Model;
-import com.example.finalproject.model.Musical;
+import com.example.finalproject.model.Recipe;
 import com.example.finalproject.model.MusicalsResult;
 import com.example.finalproject.model.User;
 import com.google.firebase.firestore.CollectionReference;
@@ -21,13 +21,13 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MusicalRepository {
-    final public static MusicalRepository instance = new MusicalRepository();
-    final String BASE_URL = "https://api.londontheatredirect.com/rest/v2/";
+public class RecipesRepository {
+    final public static RecipesRepository instance = new RecipesRepository();
+    final String BASE_URL = "https://api.edamam.com/api/recipes/v2";
     Retrofit retrofit;
-    MusicalApi musicalApi;
+    RecipesApi recipesApi;
 
-    private MusicalRepository() {
+    private RecipesRepository() {
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
@@ -35,12 +35,12 @@ public class MusicalRepository {
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
-        musicalApi = retrofit.create(MusicalApi.class);
+        recipesApi = retrofit.create(RecipesApi.class);
     }
 
-    public LiveData<List<Musical>> getMusicals() {
-        MutableLiveData<List<Musical>> data = new MutableLiveData<>();
-        Call<MusicalsResult> call = musicalApi.getAllMusicals();
+    public LiveData<List<Recipe>> getRecipes() {
+        MutableLiveData<List<Recipe>> data = new MutableLiveData<>();
+        Call<MusicalsResult> call = recipesApi.getAllRecipes();
         call.enqueue(new Callback<MusicalsResult>() {
 
             @Override
