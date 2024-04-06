@@ -23,7 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RecipesRepository {
     final public static RecipesRepository instance = new RecipesRepository();
-    final String BASE_URL = "https://api.edamam.com/api/recipes/v2";
+    final String BASE_URL = "https://api.edamam.com/api/";
     Retrofit retrofit;
     RecipesApi recipesApi;
 

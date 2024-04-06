@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import com.example.finalproject.R;
 import com.example.finalproject.ReviewRecyclerAdapter;
 import com.example.finalproject.ReviewsListFragment;
+import com.example.finalproject.activities.LoginActivity;
 import com.example.finalproject.viewModels.UserProfileFragmentViewModel;
 import com.example.finalproject.databinding.FragmentUserProfileBinding;
 import com.example.finalproject.model.LiveDataEvents;

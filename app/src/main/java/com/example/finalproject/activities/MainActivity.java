@@ -1,4 +1,4 @@
-package com.example.finalproject.views;
+package com.example.finalproject.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
