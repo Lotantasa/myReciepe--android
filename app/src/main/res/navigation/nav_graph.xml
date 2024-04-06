@@ -65,7 +65,7 @@
     </fragment>
     <fragment
         android:id="@+id/MusicalsListFragment"
-        android:name="com.example.finalproject.views.MusicalsListFragment"
+        android:name="com.example.finalproject.views.RecipesListFragment"
         android:label="fragment_musicals_list"
         tools:layout="@layout/fragment_musicals_list" >
         <action
