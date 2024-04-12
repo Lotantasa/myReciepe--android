@@ -7,7 +7,7 @@
     android:background="?attr/selectableItemBackground">
 
     <ImageView
-        android:id="@+id/musical_img_iv"
+        android:id="@+id/recipe_img"
         android:layout_width="137dp"
         android:layout_height="86dp"
         android:layout_marginStart="10dp"
@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/default_pic" />
 
     <TextView
-        android:id="@+id/musical_title_tv"
+        android:id="@+id/recipe_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -26,7 +26,7 @@
         android:textColor="#000000"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/musical_img_iv"
+        app:layout_constraintStart_toEndOf="@+id/recipe_img"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -40,8 +40,8 @@
         android:textColor="#000000"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/musical_img_iv"
-        app:layout_constraintTop_toBottomOf="@+id/musical_title_tv" />
+        app:layout_constraintStart_toEndOf="@+id/recipe_img"
+        app:layout_constraintTop_toBottomOf="@+id/recipe_title" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

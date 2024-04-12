@@ -67,7 +67,7 @@
         android:id="@+id/MusicalsListFragment"
         android:name="com.example.finalproject.views.RecipesListFragment"
         android:label="fragment_musicals_list"
-        tools:layout="@layout/fragment_musicals_list" >
+        tools:layout="@layout/recyclerview_recipe" >
         <action
             android:id="@+id/action_musicalsListFragment_to_musicalFragment"
             app:destination="@id/musicalFragment" />

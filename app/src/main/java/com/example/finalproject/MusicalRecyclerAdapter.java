@@ -20,8 +20,8 @@ class MusicalViewHolder extends RecyclerView.ViewHolder{
         super(itemView);
         this.data = data;
 
-        titleTv = itemView.findViewById(R.id.musical_title_tv);
-        imgIv = itemView.findViewById(R.id.musical_img_iv);
+        titleTv = itemView.findViewById(R.id.recipe_title);
+        imgIv = itemView.findViewById(R.id.recipe_img);
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,27 +1,22 @@
 package com.example.finalproject.repositories
 
+import android.nfc.Tag
+import android.util.Log
 import com.example.finalproject.api.RecipesApi
+import com.example.finalproject.api.SafeApiRequest
+import com.example.finalproject.model.Hit
 import com.example.finalproject.model.Recipe
+import com.example.finalproject.model.RecipeResponse
 import com.google.gson.GsonBuilder
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object RecipeRepository {
-    private val BASE_URL = "https://api.edamam.com/"
-
-    private val gson = GsonBuilder()
-        .setLenient()
-        .create()
-
-    private val retrofit: Retrofit =Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create(gson))
-        .build()
-
-    private val recipesApi: RecipesApi = retrofit.create(RecipesApi::class.java)
-
-    suspend fun getRecipes(query: String): List<Recipe> {
-        return recipesApi.getAllRecipes(
+class RecipeRepository (private val api: RecipesApi) : SafeApiRequest() {
+    suspend fun getRecipes(query: String) = apiRequest {
+        api.getAllRecipes(
             query = query,
             appId = "546a4f67",
             appKey = "aba8a9a207fd136545e0d95803581aa5",
