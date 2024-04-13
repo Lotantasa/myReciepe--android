@@ -158,15 +158,14 @@
             android:layout_marginTop="16dp"
             android:background="@drawable/edit_text_rect"
             android:ems="10"
-            android:inputType="textPersonName"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:textSize="27sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.7"
+            app:layout_constraintHorizontaias="0.7"
             app:layout_constraintStart_toEndOf="@+id/password_tv"
             app:layout_constraintTop_toBottomOf="@+id/mail_tp"
-            tools:ignore="MissingConstraints" />
+            />
 
         <TextView
             android:id="@+id/password_tv"
@@ -221,5 +220,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/textField"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            tools:ignore="MissingConstraints" />-->
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    tools:ignore="MissingConstraints" />-->
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
