@@ -73,7 +73,8 @@ public class NewReviewFragment extends Fragment {
         binding = FragmentNewReviewBinding.inflate(inflater,container,false);
         View view = binding.getRoot();
         binding.editProgressBar.setVisibility(View.GONE);
-        setParameters(NewReviewFragmentArgs.fromBundle(getArguments()).getReview(), NewReviewFragmentArgs.fromBundle(getArguments()).getEventId());
+        setParameters(NewReviewFragmentArgs.fromBundle(getArguments()).getReview(),
+                NewReviewFragmentArgs.fromBundle(getArguments()).getEventId().hashCode());
 
         cameraLauncher = registerForActivityResult(new ActivityResultContracts.TakePicturePreview(), new ActivityResultCallback<Bitmap>() {
             @Override

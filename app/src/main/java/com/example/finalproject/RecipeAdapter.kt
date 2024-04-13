@@ -6,7 +6,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finalproject.R
-import com.example.finalproject.model.Hit
 import com.example.finalproject.model.Recipe
 import com.squareup.picasso.Picasso
 
@@ -46,10 +45,10 @@ class RecipeAdapter() : RecyclerView
         return recipes.size
     }
 
-    fun submitList(newList: List<Hit>) {
-        val diffCallback = RecipeDiffCallback(recipes, newList.map { it.recipe })
+    fun submitList(newList: List<Recipe>) {
+        val diffCallback = RecipeDiffCallback(recipes, newList)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
-        recipes = newList.map { it.recipe }
+        recipes = newList
         diffResult.dispatchUpdatesTo(this)
     }
 

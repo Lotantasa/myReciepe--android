@@ -24,7 +24,8 @@ public class ReviewRepository {
     FbReviewRepository fbReviewModel = new FbReviewRepository();
     AppLocalDbRepository localDb = AppLocalDb.getAppDb();
 
-    public void getAllMusicalReviews(Integer eventId, Model.Listener<ArrayList<Review>> callback) {
+    public void getAllMusicalReviews(String eventId,
+                                     Model.Listener<ArrayList<Review>> callback) {
         fbReviewModel.getAllMusicalReviews(eventId,callback);
     }
 
@@ -76,7 +77,8 @@ public class ReviewRepository {
             db.setFirestoreSettings(settings);
         }
 
-        public void getAllMusicalReviews(Integer eventId, Model.Listener<ArrayList<Review>> callback) {
+        public void getAllMusicalReviews(String eventId,
+                                         Model.Listener<ArrayList<Review>> callback) {
             db.collection("reviews").whereEqualTo("EventId", eventId).get().addOnCompleteListener((task) -> {
                 ArrayList<Review> list = new ArrayList<>();
                 if(task.isSuccessful()) {

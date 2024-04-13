@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
 public class Recipe implements Parcelable {
 
     @SerializedName("uri")
-    public Integer id;
+    public String id;
 
     @SerializedName("label")
     public String title;
@@ -15,13 +15,13 @@ public class Recipe implements Parcelable {
     @SerializedName("image")
     public String img;
 
-    public Recipe(Integer id, String title){
+    public Recipe(String id, String title){
         this.id = id;
         this.title = title;
     }
 
     protected Recipe(Parcel in) {
-        this(in.readInt() ,in.readString());
+        this(in.readString() ,in.readString());
     }
 
     public static final Creator<Recipe> CREATOR = new Creator<Recipe>() {
@@ -36,11 +36,11 @@ public class Recipe implements Parcelable {
         }
     };
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -58,7 +58,7 @@ public class Recipe implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int i) {
-        dest.writeInt(id);
+        dest.writeString(id);
         dest.writeString(title);
         dest.writeString(img);
     }

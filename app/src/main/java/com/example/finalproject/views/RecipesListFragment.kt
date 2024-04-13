@@ -45,17 +45,16 @@ class RecipesListFragment : Fragment() {
         recipeAdapter = RecipeAdapter()
         recyclerView.adapter = recipeAdapter
 
-        // Fetch recipes
-//        viewModel.fetchRecipes("chicken")
-
         // Observe recipes LiveData from ViewModel
-//        viewModel.recipes.observe(viewLifecycleOwner, Observer { recipeResponse ->
-//            recipeResponse?.let { // Check if recipeResponse is not null
-//                recipeAdapter.submitList(recipeResponse)
-//            }
-//        })
+        viewModel.recipes.observe(viewLifecycleOwner, Observer { recipeResponse ->
+            recipeResponse?.let { // Check if recipeResponse is not null
+                recipeAdapter.submitList(recipeResponse)
+                binding!!.progressBar.visibility = View.GONE
+            }
+        })
 
-
+        // Fetch recipes
+        viewModel.fetchRecipes("chicken")
     }
 
 
@@ -65,6 +64,6 @@ class RecipesListFragment : Fragment() {
     }
 
     private fun reloadData() {
-        binding!!.progressBar.visibility = View.VISIBLE
+//        binding!!.progressBar.visibility = View.VISIBLE
     }
 }

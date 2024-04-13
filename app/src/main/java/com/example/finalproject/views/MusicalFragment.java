@@ -85,7 +85,9 @@ public class MusicalFragment extends Fragment {
             }
         });
 
-        NavDirections action = MusicalFragmentDirections.actionMusicalFragmentToNewReviewFragment(null, currRecipe.getId());
+        NavDirections action =
+                MusicalFragmentDirections.actionMusicalFragmentToNewReviewFragment(null
+                        , currRecipe.getId().hashCode());
         binding.addReviewBtn.setOnClickListener(Navigation.createNavigateOnClickListener(action));
 
         return view;

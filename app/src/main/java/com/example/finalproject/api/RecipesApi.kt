@@ -1,6 +1,6 @@
 package com.example.finalproject.api
 
-import com.example.finalproject.model.Hit
+import com.example.finalproject.model.RecipeResponse
 import com.google.gson.GsonBuilder
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -14,7 +14,7 @@ import retrofit2.http.Query
         @Query("app_id") appId: String,
         @Query("app_key") appKey: String,
         @Query("imageSize") imageSize: String
-    ):  Response<List<Hit>>
+    ):  Response<RecipeResponse>
 
      companion object {
          operator fun invoke(): RecipesApi {
