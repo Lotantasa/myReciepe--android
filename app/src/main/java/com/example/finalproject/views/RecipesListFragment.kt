@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -22,7 +23,7 @@ class RecipesListFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var recipeAdapter: RecipeAdapter
     private lateinit var viewModel: RecipesListViewModel
-    private var binding: RecyclerviewRecipeBinding? = null
+    private lateinit var loader: ProgressBar
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -39,6 +40,7 @@ class RecipesListFragment : Fragment() {
 
         // Initialize RecyclerView
         recyclerView = view.findViewById(R.id.recyclerViewRecipe)
+        loader = view.findViewById(R.id.progressBar)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // Initialize and set adapter
@@ -49,21 +51,11 @@ class RecipesListFragment : Fragment() {
         viewModel.recipes.observe(viewLifecycleOwner, Observer { recipeResponse ->
             recipeResponse?.let { // Check if recipeResponse is not null
                 recipeAdapter.submitList(recipeResponse)
-                binding!!.progressBar.visibility = View.GONE
+                loader.visibility = View.GONE
             }
         })
 
         // Fetch recipes
         viewModel.fetchRecipes("chicken")
-    }
-
-
-    override fun onResume() {
-        super.onResume()
-        reloadData()
-    }
-
-    private fun reloadData() {
-//        binding!!.progressBar.visibility = View.VISIBLE
     }
 }
