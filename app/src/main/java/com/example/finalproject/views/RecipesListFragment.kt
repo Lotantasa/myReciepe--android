@@ -9,16 +9,17 @@ import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finalproject.R
 import com.example.finalproject.api.RecipesApi
-import com.example.finalproject.databinding.RecyclerviewRecipeBinding
 import com.example.finalproject.factories.RecipesViewModelFactory
+import com.example.finalproject.model.Recipe
 import com.example.finalproject.repositories.RecipeRepository
 import com.example.finalproject.viewModels.RecipesListViewModel
 
-class RecipesListFragment : Fragment() {
+class RecipesListFragment : Fragment(), RecipeAdapter.OnRecipeClickListener {
     private lateinit var factory: RecipesViewModelFactory
     private lateinit var recyclerView: RecyclerView
     private lateinit var recipeAdapter: RecipeAdapter
@@ -53,9 +54,18 @@ class RecipesListFragment : Fragment() {
                 recipeAdapter.submitList(recipeResponse)
                 loader.visibility = View.GONE
             }
-        })
 
+        })
         // Fetch recipes
-        viewModel.fetchRecipes("chicken")
+        viewModel.fetchRecipes("cake")
+        recipeAdapter.setOnRecipeClickListener(this)
+
+    }
+    override fun onRecipeClick(recipe: Recipe) {
+        // Handle recipe click here
+        // For example, you can navigate to a detail fragment
+        println("clickedd " + recipe.title)
+        val action = RecipesListFragmentDirections.actionMusicalsListFragmentToMusicalFragment(recipe)
+        Navigation.findNavController(requireView()).navigate(action)
     }
 }

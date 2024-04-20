@@ -1,5 +1,7 @@
 package com.example.finalproject.views;
 
+import static java.sql.DriverManager.println;
+
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDirections;
@@ -16,6 +18,7 @@ import com.example.finalproject.repositories.ReviewRepository;
 import com.squareup.picasso.Picasso;
 import android.os.Bundle;
 import android.os.Parcel;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,7 +72,8 @@ public class MusicalFragment extends Fragment {
         if (reviewListFragment != null) {
             reviewListFragment.setParameters(reviewsList, reviewRowOnClickListener);
         }
-//        setParameters(MusicalFragmentArgs.fromBundle(getArguments()).getMusical());
+
+        setParameters(MusicalFragmentArgs.fromBundle(getArguments()).getRecipe());
         initScreen();
 
         reloadData();
@@ -78,36 +82,40 @@ public class MusicalFragment extends Fragment {
             reloadData();
         });
 
-        ReviewRepository.instance.getAllMusicalReviews(currRecipe.getId(),(reviewsData) -> {
-            reviewsList = reviewsData;
-            if (reviewListFragment != null) {
-                reviewListFragment.setParameters(reviewsList, reviewRowOnClickListener);
-            }
-        });
+//        ReviewRepository.instance.getAllMusicalReviews(currRecipe.getId(),(reviewsData) -> {
+//            reviewsList = reviewsData;
+//            if (reviewListFragment != null) {
+//                reviewListFragment.setParameters(reviewsList, reviewRowOnClickListener);
+//            }
+//        });
 
-        NavDirections action =
-                MusicalFragmentDirections.actionMusicalFragmentToNewReviewFragment(null
-                        , currRecipe.getId().hashCode());
-        binding.addReviewBtn.setOnClickListener(Navigation.createNavigateOnClickListener(action));
+//        NavDirections action =
+//                MusicalFragmentDirections.actionMusicalFragmentToNewReviewFragment(null
+//                        , currRecipe.getId().hashCode());
+//        binding.addReviewBtn.setOnClickListener(Navigation.createNavigateOnClickListener(action));
 
         return view;
     }
 
     void reloadData() {
-        ReviewRepository.instance.getAllMusicalReviews(currRecipe.getId(),(reviewsData) -> {
-            reviewsList = reviewsData;
-            if (reviewListFragment != null) {
-                reviewListFragment.setParameters(reviewsList, reviewRowOnClickListener);
-            }
-        });
+//        ReviewRepository.instance.getAllMusicalReviews(currRecipe.getId(),(reviewsData) -> {
+//            reviewsList = reviewsData;
+//            if (reviewListFragment != null) {
+//                reviewListFragment.setParameters(reviewsList, reviewRowOnClickListener);
+//            }
+//        });
     }
 
     void initScreen() {
-        binding.nameTv.setText(currRecipe.getTitle());
-        binding.locationTv.setText("London");
+        binding.nameTv.setText(currRecipe.title);
+        binding.descTv.setText(currRecipe.ingredients.toString().replaceAll("\\[|\\]", ""));
+        binding.taglineTv.setText("Taken From " + currRecipe.takenFrom);
+        binding.locationTv.setText(currRecipe.healthLabels.toString().replaceAll("\\[|\\]", ""));
+        binding.priceTv.setText(currRecipe.cautions.toString().replaceAll("\\[|\\]", ""));
 
-        if(currRecipe.getImg() != null) {
-            Picasso.get().load(currRecipe.getImg()).placeholder(R.drawable.default_pic).into(binding.musicalIv);
+
+        if(currRecipe.img != null) {
+            Picasso.get().load(currRecipe.img).placeholder(R.drawable.default_pic).into(binding.musicalIv);
         } else {
             binding.musicalIv.setImageResource(R.drawable.default_pic);
         }

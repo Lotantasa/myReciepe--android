@@ -14,6 +14,6 @@ public class AppLocalDb{
                 .build();
     }
 
-    private AppLocalDb(){}
+//    private AppLocalDb(){}
 }
 

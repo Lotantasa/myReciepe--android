@@ -17,7 +17,6 @@ class RecipesListViewModel(private val repository: RecipeRepository) : ViewModel
             { repository.getRecipes(query) },
             {
                 println(it)
-                println("guy")
                 _recipes.value = it?.hits?.map{hit -> hit.recipe}
             }
         )

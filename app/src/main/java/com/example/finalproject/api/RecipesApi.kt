@@ -18,13 +18,13 @@ import retrofit2.http.Query
 
      companion object {
          operator fun invoke(): RecipesApi {
-             val BASE_URL = "https://api.edamam.com/"
+             val url = "https://api.edamam.com/"
              val gson = GsonBuilder()
                  .setLenient()
                  .create()
 
              return Retrofit.Builder()
-                 .baseUrl(BASE_URL)
+                 .baseUrl(url)
                  .addConverterFactory(GsonConverterFactory.create(gson))
                  .build()
                  .create(RecipesApi::class.java)

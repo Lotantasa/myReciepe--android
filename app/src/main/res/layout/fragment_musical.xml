@@ -59,7 +59,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="2dp"
-            android:text="From 35$ "
+            android:text="From "
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -104,7 +104,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView5"
-            app:srcCompat="@drawable/info_icon" />
+            app:srcCompat="@drawable/tickets_icon" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -128,7 +128,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/descTv"
-            app:srcCompat="@drawable/tickets_icon" />
+            app:srcCompat="@drawable/info_icon" />
 
         <ImageView
             android:id="@+id/imageView7"

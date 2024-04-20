@@ -6,30 +6,48 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finalproject.R
+import com.example.finalproject.databinding.FragmentMusicalBinding
 import com.example.finalproject.model.Recipe
+import com.example.finalproject.views.RecipesListFragment
 import com.squareup.picasso.Picasso
+import kotlin.math.roundToInt
+
 
 class RecipeAdapter() : RecyclerView
-    .Adapter<RecipeAdapter
-    .RecipeViewHolder>
+.Adapter<RecipeAdapter
+.RecipeViewHolder>
     () {
     private var recipes: List<Recipe> = ArrayList()
+    var binding: FragmentMusicalBinding? = null
+    private var listener: OnRecipeClickListener? = null
+
+
     inner class RecipeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val recipeTextView: TextView =
             itemView.findViewById(R.id.recipe_title)
         private val recipeImageView: ImageView =
             itemView.findViewById(R.id.recipe_img)
+        private val caloriesTextView: TextView =
+            itemView.findViewById(R.id.recipe_calories)
 
         fun bind(recipe: Recipe) {
-            recipeTextView.text = recipe.getTitle()
-            if (recipe.getImg() != null) {
-                Picasso.get().load(recipe.getImg()).placeholder(R.drawable.default_pic)
+            recipeTextView.text = recipe.title
+            caloriesTextView.text =
+                "Calories: " + (recipe.calories?.toFloatOrNull()?.roundToInt()
+                    ?: 0)
+            if (recipe.img != null) {
+                Picasso.get().load(recipe.img).placeholder(R.drawable.default_pic)
                     .into(recipeImageView)
             } else {
                 recipeImageView.setImageResource(R.drawable.default_pic)
             }
+            itemView.setOnClickListener {
+                listener?.onRecipeClick(recipe)
+            }
+
         }
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.fragment_musical_row, parent, false)
@@ -51,7 +69,6 @@ class RecipeAdapter() : RecyclerView
         recipes = newList
         diffResult.dispatchUpdatesTo(this)
     }
-
 
 
     class RecipeDiffCallback(
@@ -80,4 +97,13 @@ class RecipeAdapter() : RecyclerView
             return oldList[oldItemPosition] == newList[newItemPosition]
         }
     }
+
+    interface OnRecipeClickListener {
+        fun onRecipeClick(recipe: Recipe)
+    }
+
+    fun setOnRecipeClickListener(listener: RecipesListFragment) {
+        this.listener = listener
+    }
 }
+

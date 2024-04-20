@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/musical_description_tv"
+        android:id="@+id/recipe_calories"
         android:layout_width="250dp"
         android:layout_height="70dp"
         android:layout_marginStart="8dp"

@@ -1,5 +1,7 @@
 package com.example.finalproject.views;
 
+import static java.sql.DriverManager.println;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -43,6 +45,7 @@ public class UserProfileFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        println("hey?");
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
     }
