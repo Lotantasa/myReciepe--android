@@ -82,28 +82,28 @@ public class MusicalFragment extends Fragment {
             reloadData();
         });
 
-//        ReviewRepository.instance.getAllMusicalReviews(currRecipe.getId(),(reviewsData) -> {
-//            reviewsList = reviewsData;
-//            if (reviewListFragment != null) {
-//                reviewListFragment.setParameters(reviewsList, reviewRowOnClickListener);
-//            }
-//        });
+        ReviewRepository.instance.getAllMusicalReviews(currRecipe.getId(),(reviewsData) -> {
+            reviewsList = reviewsData;
+            if (reviewListFragment != null) {
+                reviewListFragment.setParameters(reviewsList, reviewRowOnClickListener);
+            }
+        });
 
-//        NavDirections action =
-//                MusicalFragmentDirections.actionMusicalFragmentToNewReviewFragment(null
-//                        , currRecipe.getId().hashCode());
-//        binding.addReviewBtn.setOnClickListener(Navigation.createNavigateOnClickListener(action));
+        NavDirections action =
+                MusicalFragmentDirections.actionMusicalFragmentToNewReviewFragment(null
+                        , currRecipe.getId());
+        binding.addReviewBtn.setOnClickListener(Navigation.createNavigateOnClickListener(action));
 
         return view;
     }
 
     void reloadData() {
-//        ReviewRepository.instance.getAllMusicalReviews(currRecipe.getId(),(reviewsData) -> {
-//            reviewsList = reviewsData;
-//            if (reviewListFragment != null) {
-//                reviewListFragment.setParameters(reviewsList, reviewRowOnClickListener);
-//            }
-//        });
+        ReviewRepository.instance.getAllMusicalReviews(currRecipe.getId(),(reviewsData) -> {
+            reviewsList = reviewsData;
+            if (reviewListFragment != null) {
+                reviewListFragment.setParameters(reviewsList, reviewRowOnClickListener);
+            }
+        });
     }
 
     void initScreen() {

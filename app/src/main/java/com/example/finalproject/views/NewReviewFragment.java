@@ -9,6 +9,8 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,18 +30,18 @@ public class NewReviewFragment extends Fragment {
     ActivityResultLauncher<Void> cameraLauncher;
     Review currentReview;
     Boolean isImgSelected = false;
-    Integer eventId;
+    String eventId;
 
-    private void setParameters(Review rv, Integer eventId) {
+    private void setParameters(Review rv, String eventId) {
         this.currentReview = rv;
         this.eventId = eventId;
     }
 
-    public static NewReviewFragment newInstance(Review rv, Integer eventId){
+    public static NewReviewFragment newInstance(Review rv, String eventId){
         NewReviewFragment frag = new NewReviewFragment();
         Bundle bundle = new Bundle();
         bundle.putParcelable("Review",rv);
-        bundle.putInt("EventId",eventId);
+        bundle.putString("EventId",eventId);
         frag.setArguments(bundle);
         return frag;
     }
@@ -74,7 +76,7 @@ public class NewReviewFragment extends Fragment {
         View view = binding.getRoot();
         binding.editProgressBar.setVisibility(View.GONE);
         setParameters(NewReviewFragmentArgs.fromBundle(getArguments()).getReview(),
-                NewReviewFragmentArgs.fromBundle(getArguments()).getEventId().hashCode());
+                NewReviewFragmentArgs.fromBundle(getArguments()).getEventId());
 
         cameraLauncher = registerForActivityResult(new ActivityResultContracts.TakePicturePreview(), new ActivityResultCallback<Bitmap>() {
             @Override
@@ -95,6 +97,7 @@ public class NewReviewFragment extends Fragment {
             String seat = binding.seatEt.getText().toString();
             Float rate = binding.starsRating.getRating();
             String content = binding.contentEt.getText().toString();
+            Log.d("enevtId", eventId);
 
             if(currentReview == null) {
                 UUID uuid = UUID.randomUUID();

@@ -65,7 +65,7 @@ public class UserProfileFragment extends Fragment {
                 Bundle bundle = new Bundle();
                 Review rv = viewModel.getReviewListData().getValue().get(pos);
                 bundle.putParcelable("Review", rv);
-                bundle.putInt("eventId", rv.getEventId());
+                bundle.putString("eventId", rv.getEventId());
                 Navigation.findNavController(view).navigate(R.id.action_userProfileFragment_to_newReviewFragment, bundle);
             }
 

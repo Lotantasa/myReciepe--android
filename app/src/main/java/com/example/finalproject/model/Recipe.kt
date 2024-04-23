@@ -62,6 +62,10 @@ class Recipe : Parcelable {
         ingredients = ArrayList()
         `in`.readStringList(ingredients)
         takenFrom = `in`.readString()
+        cautions = ArrayList()
+        `in`.readStringList(cautions!!)
+        healthLabels = ArrayList()
+        `in`.readStringList(healthLabels!!)
     }
 
     override fun describeContents(): Int {
