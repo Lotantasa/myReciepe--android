@@ -14,7 +14,7 @@
         android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/review_example" />
+        app:srcCompat="@drawable/dessert" />
 
     <TextView
         android:id="@+id/textView8"
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:layout_marginTop="22dp"
-        android:text="Seat:"
+        android:text="When did you try it?:"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/reviewrow_img"
         app:layout_constraintTop_toTopOf="parent" />

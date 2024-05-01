@@ -14,7 +14,7 @@
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/default_pic" />
+            app:srcCompat="@drawable/dessert" />
 
         <TextView
             android:id="@+id/nameTv"
@@ -104,7 +104,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView5"
-            app:srcCompat="@drawable/tickets_icon" />
+            app:srcCompat="@drawable/ingredient" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -128,7 +128,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/descTv"
-            app:srcCompat="@drawable/info_icon" />
+            app:srcCompat="@drawable/tag" />
 
         <ImageView
             android:id="@+id/imageView7"
@@ -140,7 +140,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView6"
-            app:srcCompat="@drawable/pin_icon" />
+            app:srcCompat="@drawable/warning" />
 
         <View
             android:id="@+id/divider"
@@ -172,7 +172,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:layout_marginEnd="6dp"
-            android:backgroundTint="#F11551"
+            android:backgroundTint="#AA336A"
             android:text="Add review"
             android:textSize="12sp"
             app:cornerRadius="10dp"

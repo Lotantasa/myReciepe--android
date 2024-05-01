@@ -57,7 +57,7 @@ class RecipesListFragment : Fragment(), RecipeAdapter.OnRecipeClickListener {
 
         })
         // Fetch recipes
-        viewModel.fetchRecipes("cake")
+        viewModel.fetchRecipes("Cookie")
         recipeAdapter.setOnRecipeClickListener(this)
 
     }
