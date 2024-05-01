@@ -16,7 +16,7 @@ import java.io.ByteArrayOutputStream;
 
 public class UserRepository {
     public String userId;
-    private MusicalRepository.FbUserRepository fbUserModel = new MusicalRepository.FbUserRepository();
+    private FbUserRepository fbUserModel = new FbUserRepository();
     final public static UserRepository instance = new UserRepository();
 
     public void setUserId(String userId) {

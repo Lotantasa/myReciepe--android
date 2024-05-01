@@ -11,9 +11,9 @@
         android:label="fragment_musical"
         tools:layout="@layout/fragment_musical" >
         <argument
-            android:name="Musical"
-            app:argType="com.example.finalproject.model.Musical"
-            app:nullable="true"/>
+            android:name="recipe"
+            app:argType="com.example.finalproject.model.Recipe"
+            />
         <action
             android:id="@+id/action_musicalFragment_to_userProfileFragment"
             app:destination="@id/userProfileFragment" />
@@ -57,7 +57,7 @@
             app:nullable="true"/>
         <argument
             android:name="eventId"
-            app:argType="java.lang.Integer"
+            app:argType="java.lang.String"
             app:nullable="true"/>
         <action
             android:id="@+id/action_newReviewFragment_to_musicalFragment"
@@ -65,11 +65,12 @@
     </fragment>
     <fragment
         android:id="@+id/MusicalsListFragment"
-        android:name="com.example.finalproject.views.MusicalsListFragment"
+        android:name="com.example.finalproject.views.RecipesListFragment"
         android:label="fragment_musicals_list"
-        tools:layout="@layout/fragment_musicals_list" >
+        tools:layout="@layout/recyclerview_recipe" >
         <action
             android:id="@+id/action_musicalsListFragment_to_musicalFragment"
-            app:destination="@id/musicalFragment" />
+            app:destination="@id/musicalFragment"
+            />
     </fragment>
 </navigation>

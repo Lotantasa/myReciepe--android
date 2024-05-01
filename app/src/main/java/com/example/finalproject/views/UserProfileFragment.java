@@ -1,5 +1,7 @@
 package com.example.finalproject.views;
 
+import static java.sql.DriverManager.println;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +17,7 @@ import android.view.ViewGroup;
 import com.example.finalproject.R;
 import com.example.finalproject.ReviewRecyclerAdapter;
 import com.example.finalproject.ReviewsListFragment;
+import com.example.finalproject.activities.LoginActivity;
 import com.example.finalproject.viewModels.UserProfileFragmentViewModel;
 import com.example.finalproject.databinding.FragmentUserProfileBinding;
 import com.example.finalproject.model.LiveDataEvents;
@@ -42,6 +45,7 @@ public class UserProfileFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        println("hey?");
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
     }
@@ -61,7 +65,7 @@ public class UserProfileFragment extends Fragment {
                 Bundle bundle = new Bundle();
                 Review rv = viewModel.getReviewListData().getValue().get(pos);
                 bundle.putParcelable("Review", rv);
-                bundle.putInt("eventId", rv.getEventId());
+                bundle.putString("eventId", rv.getEventId());
                 Navigation.findNavController(view).navigate(R.id.action_userProfileFragment_to_newReviewFragment, bundle);
             }
 
