@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewReviewFragment">
+    tools:context=".views.NewReviewFragment">
 
     <ScrollView
         android:layout_width="0dp"
@@ -68,7 +68,7 @@
                 android:layout_height="31dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="28dp"
-                android:text="Where did you sit?"
+                android:text="When did you try it?"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -120,7 +120,7 @@
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                android:backgroundTint="#F11551"
+                android:backgroundTint="#AA336A"
                 android:text="Save"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -134,8 +134,8 @@
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                android:backgroundTint="#F11551"
-                android:text="Cancle"
+                android:backgroundTint="#AA336A"
+                android:text="Cancel"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/saveBtn"
                 app:layout_constraintHorizontal_bias="0.5"

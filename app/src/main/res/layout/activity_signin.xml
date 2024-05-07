@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SigninActivity">
+    tools:context=".activities.SigninActivity">
 
         <TextView
             android:id="@+id/mail_tv2"
@@ -118,7 +118,7 @@
             app:layout_constraintHorizontal_bias="0.507"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ellipse"
+            app:srcCompat="@drawable/dessert"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -126,14 +126,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Join\nOurSite"
-            android:textColor="#FFFFFF"
-            android:textSize="57sp"
+            android:text="Welcome"
+            android:textColor="#AA336A"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/user_img"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -202,7 +204,7 @@
             android:layout_width="112dp"
             android:layout_height="47dp"
             android:layout_marginBottom="16dp"
-            android:backgroundTint="#F11551"
+            android:backgroundTint="#AA336A"
             android:text="Sign In"
             android:textSize="16sp"
             android:textStyle="bold"

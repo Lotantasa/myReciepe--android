@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbarSize="5dp"
-    tools:context=".MusicalsListFragment">
+    tools:context=".views.RecipesListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/musical_frag_list"
+        android:id="@+id/recyclerViewRecipe"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="1dp"

@@ -1,14 +1,16 @@
-package com.example.finalproject.model;
+package com.example.finalproject.repositories;
 
+import com.example.finalproject.model.Model;
+import com.example.finalproject.model.User;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
 
-public class FbUserModel {
+public class FbUserRepository {
     CollectionReference usersCollection;
 
-    FbUserModel() {
+    public FbUserRepository() {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
                 .setPersistenceEnabled(false).build();

@@ -1,17 +1,24 @@
-package com.example.finalproject;
+package com.example.finalproject.views;
+
+import static java.sql.DriverManager.println;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
+
+import com.example.finalproject.R;
+import com.example.finalproject.ReviewRecyclerAdapter;
+import com.example.finalproject.ReviewsListFragment;
 import com.example.finalproject.databinding.FragmentMusicalBinding;
 import com.example.finalproject.model.LiveDataEvents;
-import com.example.finalproject.model.Musical;
+import com.example.finalproject.model.Recipe;
 import com.example.finalproject.model.Review;
-import com.example.finalproject.model.ReviewModel;
+import com.example.finalproject.repositories.ReviewRepository;
 import com.squareup.picasso.Picasso;
 import android.os.Bundle;
 import android.os.Parcel;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +27,7 @@ import java.util.ArrayList;
 public class MusicalFragment extends Fragment {
     ArrayList<Review> reviewsList = new ArrayList<>();
     ReviewsListFragment reviewListFragment;
-    Musical currMusical;
+    Recipe currRecipe;
     FragmentMusicalBinding binding;
     ReviewRecyclerAdapter.OnItemClickListener reviewRowOnClickListener;
 
@@ -29,8 +36,8 @@ public class MusicalFragment extends Fragment {
         return fragment;
     }
 
-    private void setParameters(Musical musical) {
-        this.currMusical = musical;
+    private void setParameters(Recipe recipe) {
+        this.currRecipe = recipe;
     }
 
     @Override
@@ -65,7 +72,8 @@ public class MusicalFragment extends Fragment {
         if (reviewListFragment != null) {
             reviewListFragment.setParameters(reviewsList, reviewRowOnClickListener);
         }
-        setParameters(MusicalFragmentArgs.fromBundle(getArguments()).getMusical());
+
+        setParameters(MusicalFragmentArgs.fromBundle(getArguments()).getRecipe());
         initScreen();
 
         reloadData();
@@ -74,21 +82,23 @@ public class MusicalFragment extends Fragment {
             reloadData();
         });
 
-        ReviewModel.instance.getAllMusicalReviews(currMusical.getId(),(reviewsData) -> {
+        ReviewRepository.instance.getAllMusicalReviews(currRecipe.getId(),(reviewsData) -> {
             reviewsList = reviewsData;
             if (reviewListFragment != null) {
                 reviewListFragment.setParameters(reviewsList, reviewRowOnClickListener);
             }
         });
 
-        NavDirections action = MusicalFragmentDirections.actionMusicalFragmentToNewReviewFragment(null, currMusical.getId());
+        NavDirections action =
+                MusicalFragmentDirections.actionMusicalFragmentToNewReviewFragment(null
+                        , currRecipe.getId());
         binding.addReviewBtn.setOnClickListener(Navigation.createNavigateOnClickListener(action));
 
         return view;
     }
 
     void reloadData() {
-        ReviewModel.instance.getAllMusicalReviews(currMusical.getId(),(reviewsData) -> {
+        ReviewRepository.instance.getAllMusicalReviews(currRecipe.getId(),(reviewsData) -> {
             reviewsList = reviewsData;
             if (reviewListFragment != null) {
                 reviewListFragment.setParameters(reviewsList, reviewRowOnClickListener);
@@ -97,15 +107,15 @@ public class MusicalFragment extends Fragment {
     }
 
     void initScreen() {
-        binding.nameTv.setText(currMusical.getTitle());
-        binding.taglineTv.setText(currMusical.getDescription());
-        binding.timeTv.setText(currMusical.getTime());
-        binding.descTv.setText(currMusical.getDescription());
-        binding.priceTv.setText(currMusical.getPrice().toString());
-        binding.locationTv.setText("London");
+        binding.nameTv.setText(currRecipe.title);
+        binding.descTv.setText(currRecipe.ingredients.toString().replaceAll("\\[|\\]", ""));
+        binding.taglineTv.setText("Taken From " + currRecipe.takenFrom);
+        binding.locationTv.setText(currRecipe.healthLabels.toString().replaceAll("\\[|\\]", ""));
+        binding.priceTv.setText(currRecipe.cautions.toString().replaceAll("\\[|\\]", ""));
 
-        if(currMusical.getImg() != null) {
-            Picasso.get().load(currMusical.getImg()).placeholder(R.drawable.default_pic).into(binding.musicalIv);
+
+        if(currRecipe.img != null) {
+            Picasso.get().load(currRecipe.img).placeholder(R.drawable.default_pic).into(binding.musicalIv);
         } else {
             binding.musicalIv.setImageResource(R.drawable.default_pic);
         }
