@@ -24,7 +24,7 @@
         <EditText
             android:id="@+id/last_name_tp"
             android:layout_width="229dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/edit_text_rect"
             android:ems="10"
@@ -41,7 +41,7 @@
         <EditText
             android:id="@+id/bio_tp"
             android:layout_width="229dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/edit_text_rect"
             android:ems="10"
@@ -58,7 +58,7 @@
         <EditText
             android:id="@+id/first_name_tp"
             android:layout_width="229dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/edit_text_rect"
             android:ems="10"
@@ -156,19 +156,17 @@
         <EditText
             android:id="@+id/password_tp"
             android:layout_width="229dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/edit_text_rect"
             android:ems="10"
-            android:inputType="textPersonName"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:textSize="27sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.7"
             app:layout_constraintStart_toEndOf="@+id/password_tv"
             app:layout_constraintTop_toBottomOf="@+id/mail_tp"
-            tools:ignore="MissingConstraints" />
+            />
 
         <TextView
             android:id="@+id/password_tv"
@@ -186,7 +184,7 @@
         <EditText
             android:id="@+id/mail_tp"
             android:layout_width="229dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginTop="28dp"
             android:layout_marginEnd="12dp"
             android:background="@drawable/edit_text_rect"
@@ -202,7 +200,7 @@
         <Button
             android:id="@+id/signin_btn"
             android:layout_width="112dp"
-            android:layout_height="47dp"
+            android:layout_height="48dp"
             android:layout_marginBottom="16dp"
             android:backgroundTint="#AA336A"
             android:text="Sign In"
@@ -223,5 +221,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/textField"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            tools:ignore="MissingConstraints" />-->
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    tools:ignore="MissingConstraints" />-->
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
