@@ -31,8 +31,8 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="40dp"
         android:text="Review:"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/reviewrow_img"
@@ -42,11 +42,12 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="48dp"
         android:text="Rate:"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/reviewrow_seat_tv"
+        app:layout_constraintStart_toStartOf="@+id/textView8"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -55,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:layout_marginTop="22dp"
-        android:text="A19"
+        android:text="Mom's Bday"
         app:layout_constraintStart_toEndOf="@+id/textView8"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -64,23 +65,24 @@
         style="?android:attr/ratingBarStyleSmall"
         android:layout_width="77dp"
         android:layout_height="19dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="4dp"
         android:contextClickable="false"
         android:numStars="5"
         android:stepSize="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/reviewrow_seat_tv" />
 
     <TextView
         android:id="@+id/reviewrow_review_tv"
-        android:layout_width="210dp"
-        android:layout_height="81dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="5dp"
-        android:text="Seat A19 is the end seat to an aisle so good for people that need the extra room to the right for leg stretch etc.rnExcellent views from A19 and A20"
+        android:layout_width="163dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="So delicious"
         android:textSize="13sp"
         app:layout_constraintStart_toEndOf="@+id/textView11"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
